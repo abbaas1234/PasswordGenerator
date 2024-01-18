@@ -11,6 +11,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'PasswordGenerator';
+  test: number = 12345;
+
   password: string = '';
   includeLetters: boolean = false;
   includeNumbers: boolean = false;
@@ -41,7 +43,7 @@ export class AppComponent {
 
     let generatedPassword = ''
 
-    for(let i = 0; i < this.length; i++) {
+    for (let i = 0; i < this.length; i++) {
       let index = Math.floor(Math.random() * validChars.length)
       generatedPassword += validChars[index]
     }
