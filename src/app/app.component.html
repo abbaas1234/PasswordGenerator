@@ -1,0 +1,59 @@
+<div class="container mt-6">
+  <div class="columns is-centered">
+    <div class="box column is-one-third">
+      
+      <h1 class="title has-text-center">
+        Password Generator
+      </h1>
+      
+      <div class="field">
+        <label>Length</label> <br/>
+        <input type="text" class="input" (input)="onCahngeLength($any($event.target).value)">
+        <p class="error" *ngIf="isNaNLength()">Length must be a number</p>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <div class="checkbox">
+            <input type="checkbox" (change)="onChangeLetter()">Use Letter
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <div class="checkbox">
+            <input type="checkbox" (change)="onChangeNumber()">Use Numbers
+          </div>
+        </div>
+      </div>
+      
+      <div class="field">
+        <div class="control">
+          <div class="checkbox">
+            <input type="checkbox" (change)="onChangeSymbol()">Use Symbols
+          </div>
+        </div>
+      </div>
+
+      <button class="button is-link is-fullwidth" (click)="onButtonClick()" [disabled]="!(length && (includeLetters || includeNumbers || includeSymbols))">Generate</button>
+
+      <br>
+
+      <div class="box" *ngIf="password">
+        <label for="">Your Password</label> <br />
+        <input type="text" class="input" [value]="password">
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
